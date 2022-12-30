@@ -1,0 +1,31 @@
+{
+  "name": "saramara_in_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "cd server && nodemon src/App.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "nunjucks": "^3.2.3",
+    "sequelize": "^6.28.0",
+    "winston": "^3.8.2",
+    "yarn": "^1.22.19"
+  }
+}

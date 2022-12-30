@@ -39,6 +39,7 @@ findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUP)이 구
 <br>
 
 ## 요청 및 응답 객체
+---
 ### status 200 - OK
 ```
 {
@@ -77,7 +78,6 @@ findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUP)이 구
 
 ### 1.  server 디렉토리에서 서버 기본틀에 필요한 패키지들을 설치한다.
 > yarn add express morgan path multer fs util mime ejs dotenv nodemon sequelize mysql mysql2 express-session express-mysql-session cors winston cookie-parser body-parser nunjucks
-##### yarn 명령어가 없다면 npm install yarn하여 yarn 설치하기
 
 <br>
 
@@ -110,6 +110,62 @@ findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUP)이 구
 
 #### 5.3 root 디렉토리에서 reat와 node 동시 실행 
 > yarn run dev
+
+<br><br>
+
+## 협업 절차[Github flow]
+---
+
+### 1. 원격에서 로컬로 받아오기
+```
+git clone 주소 복붙
+```
+
+### 2. main에 종속된 기능브랜치 생성
+```
+git checkout -b 생성할브랜치명 종속될브랜치
+```
+```
+ex) `git checkout -b fe/docs/readme main
+```
+
+<br>
+
+#### 여기서 발생할 수 있는 문제상황은?
+> main에 종속된 기능 branch에서 작업 후 PR하려는데, 다른 팀원이 먼저 PR 후 merge까지해서 main이 업데이트된 상황이 발생할 수 있다.
+
+<br>
+
+### 1. 생성한 브랜치(fe/docs/readme)에서 작업 끝나면 commit 하기
+```
+git add .
+git commit -m "커밋명"
+```
+
+### 2. 업데이트된 원격을 로컬에서도 동기화하기
+로컬에서 main branch(중심브랜치)로 checkout하고 원격 main에서 업데이트된 작업을 로컬에 pull 받아서 업데이트한다.
+
+```
+git switch main
+git pull origin main
+```
+
+### 3. 원격 main이랑 동기화된 로컬 main에서 생성한 브랜치로 rebase하기
+```
+git rebase main 생성한브랜치
+```
+
+#### 서로 파일 겹쳐서 충돌(conflict)이 발생했을 경우
+conflict 해결 후 rebase 이어서 진행하면 된다.
+```
+git rebase --continue
+```
+
+### 4. rebase 끝나면 원격에 생성한브랜치 push 하기
+
+```
+git push orign fe/docs/readme
+```
 
 <br><br>
 

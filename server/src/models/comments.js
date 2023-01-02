@@ -1,12 +1,11 @@
 import Sequelize from "sequelize";
-
 const comments = class Comments extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             commentId: {
                 type: Sequelize.INTEGER.UNSIGNED,
                 allowNull: false,
-                primaryKey:true,
+                primaryKey: true,
                 autoIncrement: true,
                 comment: "댓글 번호",
             },

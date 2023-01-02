@@ -34,7 +34,7 @@ express와 sequelize, logger와 관련된 설정을 독립적으로 로드할 �
 Model(Database Table) 등의 테이블 구성을 모아두는 디렉토리입니다.
 
 > **services** <br>
-findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUP)이 구현된 곳입니다.
+findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUD)이 구현된 곳입니다.
 
 <br>
 

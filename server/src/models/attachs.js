@@ -7,6 +7,7 @@ const attachs = class Attachs extends Sequelize.Model {
                 type: Sequelize.INTEGER.UNSIGNED,
                 allowNull: false,
                 primaryKey: true,
+                autoIncrement: true,
                 comment: "첨부파일 번호",
             },
             img: {

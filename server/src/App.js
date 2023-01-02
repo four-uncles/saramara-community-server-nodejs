@@ -5,6 +5,8 @@ import expressApp from "./loaders/index.js";
 
 const startServer = async () => {
   const app = express();
+  app.use(express.json());
+  app.use(express.urlencoded({extended:true}));
   await expressApp(app);
 
   app.listen(config.port, () => {

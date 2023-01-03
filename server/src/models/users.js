@@ -65,6 +65,9 @@ const users = class Users extends Sequelize.Model {
         
         // 사용자(users)와 댓글(comments)은 1:N 관계
         db.Users.hasMany(db.Comments, {foreignKey: 'userId', sourceKey: 'userId'});
+
+        // 사용자(users)와 리프레시토큰은 1:1 관계
+        db.Users.hasOne(db.Tokens, {foreignKey: 'email', sourceKey: 'email'});
     }
 };
 export default users;

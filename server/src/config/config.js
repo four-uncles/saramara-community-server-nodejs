@@ -32,6 +32,10 @@ const config = {
      */
     jwtSecret: process.env.JWT_SECRET,
     jwtAlgorithm: process.env.JWT_ALGO,
+    jwtAccessTokenExpiresIn: process.env.JWT_ACCESS_TOKEN_ExpiresIn,
+    jwtRefreshTokenExpiresIn: process.env.JWT_REFRESH_TOKEN_ExpiresIn,
+    jwtIssure: process.env.JWT_ISSURE,
+
 
     /*
      * Used by winston logger

@@ -31,6 +31,7 @@ db.Attachs = Attachs;
 db.Tokens = Tokens;
 
 
+
 // model init
 Users.init(sequelize);
 Posts.init(sequelize);
@@ -40,6 +41,7 @@ Tokens.init(sequelize);
 
 // model associate
 Users.associate(db);
+Tokens.associate(db);
 Posts.associate(db);
 Comments.associate(db);
 

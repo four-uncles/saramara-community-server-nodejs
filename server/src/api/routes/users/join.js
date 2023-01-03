@@ -37,7 +37,10 @@ const join = (app) => {
             })
 
         } catch(err) {
+
+            // 회원이 이미 존재함
             console.log(err);
+            // 왜 걸어둠?
             Logger.err(err);
             next(err);
 

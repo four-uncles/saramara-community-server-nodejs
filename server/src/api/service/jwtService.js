@@ -14,7 +14,7 @@ const jwtService = {
     return jwt.sign(payload, secret, {
       algorithm: config.jwtAlgorithm,
       expiresIn: config.jwtAccessTokenExpiresIn,
-      issuer: config.jwtIssure,
+      issuer: config.jwtIssuer,
     });
   },
 

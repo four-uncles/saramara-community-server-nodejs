@@ -34,7 +34,7 @@ const config = {
     jwtAlgorithm: process.env.JWT_ALGO,
     jwtAccessTokenExpiresIn: process.env.JWT_ACCESS_TOKEN_ExpiresIn,
     jwtRefreshTokenExpiresIn: process.env.JWT_REFRESH_TOKEN_ExpiresIn,
-    jwtIssure: process.env.JWT_ISSURE,
+    jwtIssuer: process.env.JWT_ISSUER,
 
 
     /*

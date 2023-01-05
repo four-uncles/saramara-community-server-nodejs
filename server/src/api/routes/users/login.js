@@ -6,7 +6,7 @@ import Users from "../../../models/users.js";
 import Tokens from "../../../models/tokens.js"
 import Logger from "../../../loaders/logger.js"
 import config from '../../../config/config.js';
-import jwtService from "../../Service/jwtService.js";
+import jwtService from "../../../services/jwtService.js";
 import bcrypt from "bcrypt";
 
 

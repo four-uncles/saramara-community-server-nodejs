@@ -33,9 +33,8 @@ const login = (app) => {
               
             });
         
-            
-        
             if (userinfo) {
+              // ㅑㅇ
               const chkId = await email == userinfo.email
               const chkPw = await bcrypt.compare(password, userinfo.password);
               if (chkId && chkPw) {
@@ -47,8 +46,8 @@ const login = (app) => {
                   refreshToken: refreshToken,
                   email: userinfo.email,
               });
-          
-                res.status(200).send({
+
+                res.status(200).json({
                   ok: true,
                   data: {
                     accessToken,
@@ -58,14 +57,14 @@ const login = (app) => {
                 return;
         
               } else {
-                res.status(401).send({
+                res.status(401).json({
                   ok: false,
                   message: 'password is incorrect',
                 });
                 return;
               }
             }
-            res.status(401).send({
+            res.status(401).json({
               ok: false,
               message: 'user not exist',
             });
@@ -73,6 +72,7 @@ const login = (app) => {
           }catch(err){
             console.log(err);
             //Logger.err(err);
+            next(err);
           }
     })
 }

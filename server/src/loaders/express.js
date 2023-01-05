@@ -1,8 +1,8 @@
+import express from "express";
 import config from "../config/config.js";
 import routes from "../api/index.js";
 import Logger from "./logger.js";
 
-import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -63,10 +63,8 @@ const expressLoader = (app) => {
     );
 
     // POST parameter read
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+    app.use(express.json());
+    app.use(express.urlencoded({extended:true}));
 
     // cookie
     app.use(cookieParser(config.cookieSecret));

@@ -1,10 +1,12 @@
 import { Router } from "express";
+import dayjs from "dayjs";
+
+import logger from "winston";
 import Logger from "../../loaders/logger.js";
-import multer from "multer";
-import path from "path";
-import fs from "fs";
+import upload from "../middlewares/attachs/index.js";
 
 const router = Router();
+const today = dayjs();
 
 /** 
  * 첨부파일 이미지와 관련된 routes 
@@ -14,21 +16,20 @@ const attachs = (app) => {
 
     router.get("/", async (req, res, next) => {
         try {
-            const now = Date.now();
-            Logger.info("now: " + now);
+            const date = today.format("YYYY-MM-DD");
+            const imgPath = upload.syncDir("post", date, 2);
+            logger.info(imgPath);
 
             res.status(200).json({
                 code: 200,
-                msg: "success",
-                data: {}
+                msg: "success"
             });
         } catch (err) {
             console.log(err);
-            Logger.err(err);
+            logger.error(err);
             next(err);
         }
     });
-
 
     /**
      * /api/posts/imgs/:postId
@@ -39,10 +40,6 @@ const attachs = (app) => {
      */
     router.get("/:postId", async (req, res, next) => {
         try {
-
-            const now = Date.now();
-            Logger.info("now: " + now);
-
             /** 
              * 해당 게시글(postId)과 게시글에 연결된 댓글에 대한 첨부파일 이미지 가져오기 
              */
@@ -58,7 +55,6 @@ const attachs = (app) => {
             next(err);
         }
     });
-
 };
 
 export default attachs;

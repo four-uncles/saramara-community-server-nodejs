@@ -20,11 +20,11 @@ const posts = (app) => {
      * 2. response JSON
      */
     router.get("/", async (req, res, next) => {
+        Logger.info("router: " + router);
         try {
             const posts = await Posts.findAll({
                 order: [['createdAt', 'DESC']]
             });
-
             res.status(200).json({
                 code: 200,
                 msg: "success",

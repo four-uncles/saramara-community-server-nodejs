@@ -12,6 +12,8 @@ import session from "express-session";
 import morgan from "morgan";
 import nunjucks from "nunjucks";
 
+import fs from "fs";
+
 const expressLoader = (app) => {
 
     /*
@@ -71,8 +73,15 @@ const expressLoader = (app) => {
 
     // Load API routes
     app.use(config.api.prefix, routes());
-    console.log(config.api.prefix);
     
+    // init mkdir public/img directory 
+    try {
+        fs.readdirSync("public/img");
+    } catch (error) {
+        console.error("not found directory, create public/img directory.");
+        fs.mkdirSync("public/img", { recursive: true });
+    }
+
     // 404 에러가 발생한 경우 처리
     app.use((req, res, next) => {
         const err = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);

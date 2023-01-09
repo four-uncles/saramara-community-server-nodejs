@@ -38,7 +38,7 @@ const register = (app) => {
 
         } catch(err) {
             console.log(err);
-            Logger.err(err);
+            //Logger.err(err);
             next(err);
 
             res.status(409).send({

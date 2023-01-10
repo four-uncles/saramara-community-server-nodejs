@@ -14,7 +14,13 @@ import nunjucks from "nunjucks";
 
 import fs from "fs";
 
+// 패스포트 등록
+import passport from "passport";
+import passportConfig from "../api/middlewares/passport/index.js";
+
 const expressLoader = (app) => {
+
+    passportConfig(); // 패스포트 설정
 
     /*
      * Health Check endpoints
@@ -60,13 +66,20 @@ const expressLoader = (app) => {
             secret: config.cookieSecret,
             resave: false,
             saveUninitialized: true,
-            store: new MySQLStore(options)
+            store: new MySQLStore(options),
+            cookie: {
+                httpOnly: true,
+                secure: false,
+             },
         })
     );
 
+    app.use(passport.initialize()); // 요청 객체에 passport 설정 심기
+    app.use(passport.session()); // req.session 객체에 passport 추가 저장
+
     // POST parameter read
     app.use(express.json());
-    app.use(express.urlencoded({extended:true}));
+    app.use(express.urlencoded({extended:false}));
 
     // cookie
     app.use(cookieParser(config.cookieSecret));

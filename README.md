@@ -73,6 +73,12 @@ findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUD)이 구
 
 <br>
 
+## API 설계서
+자세한 API 설계 내용은 [노션 링크](https://jooneys-portfolio.notion.site/API-e98486d3b7bd4b3189bfdcb388fef807)에서 확인할 수 있습니다.
+
+
+<br>
+
 ## React(클라이언트) - Node(서버) 프로젝트 세팅
 ---
 

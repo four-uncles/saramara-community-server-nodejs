@@ -83,7 +83,7 @@ findOne, findAll, create, update, delete 등의 비즈니스 로직(CRUD)이 구
 ---
 
 ### 1.  server 디렉토리에서 서버 기본틀에 필요한 패키지들을 설치한다.
-> yarn add express morgan path multer fs util mime ejs dotenv nodemon sequelize mysql mysql2 express-session express-mysql-session cors winston cookie-parser body-parser nunjucks bcrypt jsonwebtoken
+> yarn add express morgan path multer fs util mime ejs dotenv nodemon sequelize mysql mysql2 express-session express-mysql-session cors winston cookie-parser body-parser nunjucks bcrypt jsonwebtoken passport dayjs
 
 <br>
 

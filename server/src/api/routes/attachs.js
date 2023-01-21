@@ -1,12 +1,11 @@
 import { Router } from "express";
-import dayjs from "dayjs";
 
 import logger from "winston";
 import Logger from "../../loaders/logger.js";
 import upload from "../middlewares/attachs/index.js";
 
 const router = Router();
-const today = dayjs();
+const fileUpload = upload.fileUpload();
 
 /** 
  * 첨부파일 이미지와 관련된 routes 
@@ -14,12 +13,9 @@ const today = dayjs();
 const attachs = (app) => {
     app.use("/attachs", router);
 
-    router.get("/", async (req, res, next) => {
+    router.post("/", fileUpload.single("postImg"), async (req, res, next) => {
         try {
-            const date = today.format("YYYY-MM-DD");
-            const imgPath = upload.syncDir("post", date, 2);
-            logger.info(imgPath);
-
+            logger.info("req: " + req.file);
             res.status(200).json({
                 code: 200,
                 msg: "success"

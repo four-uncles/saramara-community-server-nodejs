@@ -31,6 +31,7 @@
     "passport-kakao": "^1.0.1",
     "path": "^0.12.7",
     "sequelize": "^6.28.0",
+    "uuid": "^9.0.0",
     "winston": "^3.8.2",
     "yarn": "^1.22.19"
   }

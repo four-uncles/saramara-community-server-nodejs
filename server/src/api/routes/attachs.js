@@ -13,9 +13,9 @@ const fileUpload = upload.fileUpload();
 const attachs = (app) => {
     app.use("/attachs", router);
 
-    router.post("/", fileUpload.single("postImg"), async (req, res, next) => {
+    router.post("/", fileUpload.array("postImg", 5), async (req, res, next) => {
         try {
-            logger.info("req: " + req.file);
+            // logger.info(req.files);
             res.status(200).json({
                 code: 200,
                 msg: "success"

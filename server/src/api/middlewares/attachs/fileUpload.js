@@ -8,7 +8,10 @@ import path from "path";
 import fs from "fs";
 import dayjs from "dayjs";
 
+import { v4 } from "uuid";
+
 const day = dayjs();
+const uuid = v4();
 
 const storage = () => multer.diskStorage({
     destination(req, file, done) {
@@ -30,7 +33,11 @@ const storage = () => multer.diskStorage({
     },
     filename(req, file, done) {
         const ext = path.extname(file.originalname);
-        done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        const sequence = req.files.indexOf(req.files[req.files.length -1]);
+        const filename = uuid + "_" + sequence;
+        logger.info("filename: " + filename);
+        // done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        done(null, path.basename(filename)+ ext);
     },
 });
 const limits = { fileSize: 5 * 1024 * 1024 };

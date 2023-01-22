@@ -12,7 +12,7 @@ const fileUpload = upload.fileUpload();
  */
 const attachs = (app) => {
     app.use("/attachs", router);
-
+    
     router.post("/", fileUpload.array("postImg", 5), async (req, res, next) => {
         try {
             // logger.info(req.files);

@@ -20,7 +20,6 @@ const posts = (app) => {
      * 2. response JSON
      */
     router.get("/", async (req, res, next) => {
-        Logger.info("router: " + router);
         try {
             const posts = await Posts.findAll({
                 order: [['createdAt', 'DESC']]
@@ -40,7 +39,7 @@ const posts = (app) => {
     /**
      * /api/posts/:postInfo
      * postInfo: postId(게시글 PK)
-     * 하나의 게시글 가져오기
+     * 특정한 하나의 게시글 가져오기
      * 
      * 임시로 router에서 비즈니스 로직을 처리하지만 service에서 처리하도록 수정해야 한다.
      * 1. Read Parameter postId

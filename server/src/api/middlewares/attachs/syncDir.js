@@ -8,7 +8,7 @@ const syncDir = (type, date, postid, commentid) => {
         dirName += "/post/" + postid;
     }
     else {
-        dirName += "/post/" + postid + "/comment" + commentid;
+        dirName += "/post/" + postid + "/comment/" + commentid;
     }
     // 이미지를 업로드할 게시글이나 댓글의 디렉토리가 없을 경우 생성한다.
     try {
